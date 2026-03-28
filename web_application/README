@@ -1,0 +1,41 @@
+=======================
+    Dermotology X Neural_Network
+=======================
+
+this is a Demo for a feature. it is meant to be used as an rest_API for every one who wish to get an analysis of any skin_condition. this is meant solely for giving the user the understanding if the skin condition shown in an image is one of the following condition:
+1. fungus
+2. melanoma
+3. pimple
+4. rush
+5. nothing
+
+a clear and correct diagnosis needs to be done by a proffessional in the relvant medical field. this is no more than a guide line and should be taken with a grain of salt.
+
+Defnitions:
+
+p = number of possible diagnosis for the input
+k = number of frame retreive rom the video for diagnosis
+x = name of diagnosis
+
+diagnosis:
+viral (Y/N)
+fungial (Y/N)
+rush (Y/N)
+
+true 
+
+arcitecture:
+1. input from user 
+2. if input is video:
+    check for clear frames of the spot in need for diagnosis
+    create a list of the k best frame for diagnosis (need to be an algorythm to getting the best frames)
+3. run the inpiut through preproccessing.
+4. send proccessed input to the NN for initial diagnosis. the first NN is for classifying the p possibilites for diagnosis 
+5. send the input for the NN of the chosen diagnosis for more accurate result. 
+6. return the diagnosis
+
+
+DCNN models:
+
+classifier : this DCNN's only purpose is to define narrow the ski disease to few realistic diagnosis. 
+validate_X_diagnosis : X stands for the diangnosis. each diagnosis have it's own CNN that design to validate if it is said diagnosis or not. 

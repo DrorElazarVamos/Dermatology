@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1e1e2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Dermotology — Skin Analysis</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <span class="header-icon">🔬</span>
+            <div>
+                <h1 class="header-title">Dermotology</h1>
+                <p class="header-sub">AI Skin Lesion Analysis</p>
+            </div>
+        </header>
+
+        <!-- Upload Section -->
+        <section id="upload-section">
+            <div class="upload-card" id="drop-zone">
+                <div class="upload-icon">📷</div>
+                <p class="upload-title">Analyse a skin lesion</p>
+                <p class="upload-hint">Take a photo or choose from your gallery</p>
+                <div class="upload-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('camera-input').click()">
+                        📸&nbsp; Camera
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('gallery-input').click()">
+                        🖼&nbsp; Gallery
+                    </button>
+                </div>
+                <!-- capture="environment" opens the rear camera directly on mobile -->
+                <input type="file" id="camera-input"  accept="image/*" capture="environment" hidden>
+                <input type="file" id="gallery-input" accept="image/*" hidden>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview-section" class="hidden">
+            <div class="preview-card">
+                <img id="preview-img" class="preview-img" alt="Selected image">
+                <div class="preview-actions">
+                    <button class="btn btn-ghost" onclick="resetApp()">✕&nbsp; Clear</button>
+                    <button class="btn btn-primary" id="analyze-btn" onclick="analyze()">
+                        Analyse
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading-section" class="hidden loading-section">
+            <div class="spinner"></div>
+            <p class="loading-text">Analysing image…</p>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="hidden">
+
+            <div class="result-hero" id="result-hero">
+                <p class="result-hero-label">DIAGNOSIS</p>
+                <p class="result-label" id="result-label"></p>
+                <p class="result-conf"  id="result-conf"></p>
+                <span class="result-badge" id="result-badge"></span>
+            </div>
+
+            <div class="scores-card">
+                <h3 class="scores-title">All Classes</h3>
+                <div id="scores-list"></div>
+            </div>
+
+            <div class="disclaimer">
+                ⚠&nbsp; This tool is for educational purposes only and does not constitute
+                medical advice. Consult a qualified dermatologist for any skin concerns.
+            </div>
+
+            <button class="btn btn-full btn-secondary" onclick="resetApp()">
+                ← Analyse Another Image
+            </button>
+        </section>
+
+    </div><!-- .app -->
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
