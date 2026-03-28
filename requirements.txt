@@ -1,0 +1,9 @@
+torch>=2.2.0
+kaggle>=1.6.0
+torchvision>=0.17.0
+kornia>=0.7.2
+numpy>=1.24.0
+Pillow>=10.0.0
+scikit-learn>=1.4.0
+tensorboard>=2.15.0
+rich>=13.0.0
